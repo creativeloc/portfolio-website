@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import "./globals.css"
+import Navbar from "@/components/general/navbar/Navbar"
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -19,8 +20,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${poppins.className} antialiased bg-slate-950`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body className={`${poppins.className} antialiased bg-slate-950`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   )
 }
