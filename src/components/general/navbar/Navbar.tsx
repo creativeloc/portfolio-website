@@ -1,9 +1,13 @@
+"use client"
+
 import Link from "next/link"
 import Logo from "./Logo"
 import LinkButton from "../LinkButton"
-import { LuDownload } from "react-icons/lu"
+import { LuDownload, LuMenu, LuX } from "react-icons/lu"
+import MobileNav from "./MobileNav"
+import { useEffect, useState } from "react"
 
-const navLinks = [
+export const navLinks = [
   { url: "#home", label: "Home" },
   { url: "#services", label: "Services" },
   { url: "#resume", label: "Resume" },
@@ -14,8 +18,27 @@ const navLinks = [
 ]
 
 export default function Navbar() {
+  const [navOpen, setNavOpen] = useState(false)
+  const [navBackground, setNavBackground] = useState(false)
+
+  useEffect(() => {
+    const navHandler = () => {
+      if (window.scrollY >= 90) setNavBackground(true)
+      if (window.scrollY < 90) setNavBackground(false)
+    }
+
+    window.addEventListener("scroll", navHandler)
+
+    // CleanUp function
+    return () => {
+      return window.removeEventListener("scroll", navHandler)
+    }
+  }, [])
+
   return (
-    <nav className="h-18 fixed z-50 w-full">
+    <nav
+      className={`h-18 fixed z-50 w-full transition-all duration-300 ${navBackground ? "bg-slate-900 shadow-md" : ""}`}
+    >
       <div className="flex items-center h-full justify-between w-[90%] mx-auto">
         {/* logo */}
         <Logo />
@@ -45,6 +68,14 @@ export default function Navbar() {
             iconPosition="left"
           />
         </div>
+        <button
+          onClick={() => setNavOpen(!navOpen)}
+          className="w-8 h-8 cursor-pointer text-white z-100 lg:hidden"
+        >
+          {navOpen ? <LuX size={30} /> : <LuMenu size={30} />}
+        </button>
+
+        <MobileNav navOpen={navOpen} />
       </div>
     </nav>
   )
