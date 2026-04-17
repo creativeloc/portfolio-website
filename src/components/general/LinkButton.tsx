@@ -7,7 +7,7 @@ interface LinkButtonProps {
   icon?: IconType
   iconPosition?: "right" | "left"
   rounded?: boolean
-  download: boolean
+  download?: boolean
 }
 
 export default function LinkButton({
