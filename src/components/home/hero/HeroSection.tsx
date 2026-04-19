@@ -42,7 +42,7 @@ export default function HeroSection() {
         <AnimatedIntro />
         <LinkButton
           href="#projects"
-          text="See My Work"
+          text="My Projects"
           icon={LuArrowRight}
           rounded
         />

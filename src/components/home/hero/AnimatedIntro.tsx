@@ -3,7 +3,7 @@ import Typewriter from "typewriter-effect"
 export default function AnimatedIntro() {
   return (
     <div className="text-lg sm:2xl h-30 px-8 text-center font-medium text-gray-400">
-      Hi I&apos;m John - A passionate
+      Hi I&apos;m John - A Passionate Developer in
       <span className="text-indigo-400 font-bold">
         <Typewriter
           options={{
