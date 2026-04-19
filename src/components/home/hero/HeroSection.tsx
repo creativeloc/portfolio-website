@@ -3,6 +3,7 @@ import Image from "next/image"
 import AnimatedIntro from "./AnimatedIntro"
 import LinkButton from "@/components/general/LinkButton"
 import { LuArrowRight } from "react-icons/lu"
+import Particles from "./Particles"
 
 export default function HeroSection() {
   return (
@@ -10,6 +11,19 @@ export default function HeroSection() {
       id="home"
       className="h-screen relative flex justify-center items-center overflow-hidden flex-col"
     >
+      <div style={{ width: "100%", height: "600px", position: "relative" }}>
+        <Particles
+          particleColors={["#ffffff"]}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover
+          alphaParticles={false}
+          disableRotation={false}
+          pixelRatio={1}
+        />
+      </div>
       <div className="absolute z-10 flex flex-col items-center">
         {/* glowing image */}
         <div className="w-37.5 h-37.5 relative">
