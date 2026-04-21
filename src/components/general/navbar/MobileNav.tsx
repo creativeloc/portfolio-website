@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { navLinks } from "./Navbar"
+import LinkButton from "../LinkButton"
+import { LuDownload } from "react-icons/lu"
 
 interface MobileNavProps {
   navOpen: boolean
@@ -11,12 +13,12 @@ export default function MobileNav({ navOpen }: MobileNavProps) {
     <>
       {/* insetbackground */}
       <div
-        className={`fixed inset-0 transform right-0 z-50 bg-black opacity-30 w-full h-screen transition-all duration-500 ${showMobileNav}`}
+        className={`fixed inset-0 transform right-0 z-50 bg-black opacity-30 w-full h-screen transition-all duration-500 ${showMobileNav} lg:hidden`}
       ></div>
 
       {/* navlinks */}
       <ul
-        className={`fixed flex items-center justify-center text-white flex-col h-full transform transition-all duration-500 delay-300 w-[80%] sm:w-[60%] bg-slate-800 space-y-1 z-80 right-0 top-0 ${showMobileNav}`}
+        className={`fixed flex items-center justify-center text-white flex-col h-full transform transition-all duration-500 delay-300 w-[80%] sm:w-[60%] bg-slate-800 space-y-1 z-80 right-0 top-0 ${showMobileNav} lg:hidden`}
       >
         {navLinks.map((link) => {
           return (
@@ -30,6 +32,15 @@ export default function MobileNav({ navOpen }: MobileNavProps) {
             </li>
           )
         })}
+        <div className="my-4">
+          <LinkButton
+            href="/documents/cv.pdf"
+            text="Download CV"
+            download
+            icon={LuDownload}
+            iconPosition="left"
+          />
+        </div>
       </ul>
     </>
   )

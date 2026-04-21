@@ -31,7 +31,7 @@ export default function Navbar() {
 
     // CleanUp function
     return () => {
-      return window.removeEventListener("scroll", navHandler)
+      window.removeEventListener("scroll", navHandler)
     }
   }, [])
 
