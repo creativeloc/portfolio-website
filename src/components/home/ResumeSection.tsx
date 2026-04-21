@@ -1,6 +1,13 @@
-import { LuAudioWaveform, LuBookOpen, LuGraduationCap } from "react-icons/lu"
+import {
+  LuAward,
+  LuBookOpen,
+  LuGraduationCap,
+  LuPackage,
+  LuServer
+} from "react-icons/lu"
 import Header from "../general/Header"
 import ResumeCard from "../ResumeCard"
+import { RiNextjsFill } from "react-icons/ri"
 
 export default function ResumeSection() {
   return (
@@ -23,7 +30,7 @@ export default function ResumeSection() {
               date="June, 1983 - Sept, 1987"
             />
             <ResumeCard
-              icon={LuAudioWaveform}
+              icon={LuAward}
               major="Academic Achievements"
               description="BS in Chemical Engineering | Penn State University with a Minor in Mathematics, software engineering principles, and web technologies."
               date="June, 1983 - Sept, 1987"
@@ -31,6 +38,26 @@ export default function ResumeSection() {
           </div>
         </div>
         {/* work experience section */}
+        <div>
+          <Header title="My Work Experience" as="h2" />
+          <div className="space-y-6">
+            <ResumeCard
+              icon={RiNextjsFill}
+              major="FrontEnd Developer"
+              description="Crafting responsive, accessible interfaces with modern frameworks like React & Nex.js. Focus on performance, UX, and pixel-perfect implementation."
+            />
+            <ResumeCard
+              icon={LuServer}
+              major="BackEnd Developer"
+              description="Building Scalable APIs, databases, and server infrastructure. Experienced with Node.js, Express, MongoDM, Cloud Services, and microservices architecture."
+            />
+            <ResumeCard
+              icon={LuPackage}
+              major="FullStack Developer"
+              description="Front-to-end web application development. Bridging FrontEnd interfaces with backend systems for cohesive, and full-featured digital solutions."
+            />
+          </div>
+        </div>
       </div>
     </section>
   )

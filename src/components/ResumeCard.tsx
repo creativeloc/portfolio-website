@@ -27,7 +27,7 @@ export default function ResumeCard({
         <p className="text-gray-200 text-xl sm:text-2xl font-semibold tracking-wide">
           {major}
         </p>
-        <p className="text-sm sm:text-base mt-3 text-gray-300 tracking-wide">
+        <p className="text-sm sm:text-base mt-3 text-gray-400 tracking-wide">
           {description}
         </p>
       </div>
