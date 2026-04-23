@@ -11,7 +11,7 @@ const skills = [
     skillLevel: 85
   },
   {
-    name: "React JsJavaScript",
+    name: "React Js",
     icon: <DiReact />,
     skillLevel: 95
   },
@@ -52,7 +52,7 @@ export default function SkillsSection() {
               <p className="text-2xl font-semibold my-4 text-gray-200">
                 {skill.skillLevel}%
               </p>
-              <p className="text-indigo-500 font-semibold">{skill.name}</p>
+              <p className="text-indigo-200 font-medium">{skill.name}</p>
             </div>
           )
         })}
