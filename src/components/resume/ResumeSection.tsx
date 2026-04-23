@@ -6,7 +6,7 @@ import {
   LuServer
 } from "react-icons/lu"
 import Header from "../general/Header"
-import ResumeCard from "../testimonials/ResumeCard"
+import ResumeCard from "./ResumeCard"
 import { RiNextjsFill } from "react-icons/ri"
 
 export default function ResumeSection() {
