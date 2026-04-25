@@ -5,10 +5,11 @@ import ProjectSection from "@/components/projects/ProjectSection"
 import SkillsSection from "@/components/skills/SkillsSection"
 import TestimonialsSection from "@/components/testimonials/TestimonialsSection"
 import ContactSection from "@/components/contact/ContactSection"
+import AnimationLayout from "../../layouts/AnimationLayout"
 
 export default function Home() {
   return (
-    <>
+    <AnimationLayout>
       <HeroSection />
       <ServiceSection />
       <ResumeSection />
@@ -16,6 +17,6 @@ export default function Home() {
       <SkillsSection />
       <TestimonialsSection />
       <ContactSection />
-    </>
+    </AnimationLayout>
   )
 }
