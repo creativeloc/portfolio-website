@@ -49,6 +49,9 @@ export default function HeroSection() {
           text="My Projects"
           icon={LuArrowRight}
           rounded
+          aosType="fade-up"
+          aosDelay={600}
+          animate
         />
       </div>
     </section>
