@@ -1,7 +1,9 @@
+"use client"
+
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa"
-import Header from "../general/Header"
 import Link from "next/link"
 import { LuSend } from "react-icons/lu"
+import { useState } from "react"
 
 const contactInfo = [
   {
@@ -25,8 +27,31 @@ const contactInfo = [
 ]
 
 export default function ContactSection() {
+  const [loading, setLoading] = useState(false)
+
   const InputStyles =
     "px-4 py-3.5 my-4 bg-slate-800 outline-none rounded-md w-full text-gray-200 placeholder-gray-400=true"
+
+  const onSubmit = async (event: React.FormEvent) => {
+    setLoading(true)
+    event.preventDefault()
+
+    const formData = new FormData(event.target as HTMLFormElement)
+    formData.append("access_key", "0b792414-3540-414c-82ce-079686655fc8")
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    })
+
+    const data = await response.json()
+    if (data.success) {
+      ;(event.target as HTMLFormElement).reset()
+    } else {
+    }
+
+    setLoading(false)
+  }
 
   return (
     <section id="contact" className="py-16 lg:py30">
@@ -68,7 +93,10 @@ export default function ContactSection() {
 
         {/* contact form */}
         <div data-aos="zoom-in">
-          <form className="rounded-lg bg-slate-900 px-4 py-8">
+          <form
+            onSubmit={onSubmit}
+            className="rounded-lg bg-slate-900 px-4 py-8"
+          >
             <input
               type="text"
               placeholder="Your Name"
@@ -97,8 +125,17 @@ export default function ContactSection() {
               type="submit"
               className="w-full bg-linear-to-r from-blue-900 to-purple-800 hover:from-blue-800 hover:to-purple-700 text-white fon-semibold py-4 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 "
             >
-              <LuSend size={20} />
-              Send Message
+              {true ? (
+                <>
+                  <span className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin"></span>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <LuSend size={20} />
+                  Send Message
+                </>
+              )}
             </button>
           </form>
         </div>
