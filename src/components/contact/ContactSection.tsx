@@ -4,6 +4,7 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa"
 import Link from "next/link"
 import { LuSend } from "react-icons/lu"
 import { useState } from "react"
+import toast from "react-hot-toast"
 
 const contactInfo = [
   {
@@ -47,7 +48,19 @@ export default function ContactSection() {
     const data = await response.json()
     if (data.success) {
       ;(event.target as HTMLFormElement).reset()
+      toast("Form submitted successfully", {
+        style: {
+          background: "#4f39f6",
+          color: "white"
+        }
+      })
     } else {
+      toast("Error submitting form", {
+        style: {
+          background: "#4f39f6",
+          color: "white"
+        }
+      })
     }
 
     setLoading(false)
@@ -102,30 +115,34 @@ export default function ContactSection() {
               placeholder="Your Name"
               className={InputStyles}
               required
+              name="name"
             />
             <input
               type="text"
               placeholder="Your Email"
               className={InputStyles}
               required
+              name="email"
             />
             <input
               type="text"
               placeholder="Subject of Message"
               className={InputStyles}
               required
+              name="subject"
             />
             <textarea
               placeholder="Message"
               required
               className={`${InputStyles} resize-none`}
               rows={5}
+              name="message"
             />
             <button
               type="submit"
               className="w-full bg-linear-to-r from-blue-900 to-purple-800 hover:from-blue-800 hover:to-purple-700 text-white fon-semibold py-4 rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 "
             >
-              {true ? (
+              {loading ? (
                 <>
                   <span className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin"></span>
                   Sending...

@@ -32,7 +32,9 @@ export default function HeroSection() {
             src="/images/image.png"
             alt="image"
             className="rounded-full object-cover"
+            loading="eager"
             fill
+            // sizes=""
           />
         </div>
 
